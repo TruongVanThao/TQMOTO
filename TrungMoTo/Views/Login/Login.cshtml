@@ -1,0 +1,48 @@
+﻿@{
+    ViewBag.Title = "Login";
+}
+
+<html>
+    
+    <head>
+        <title>@ViewBag.Title</title>
+        <link href="@Url.Content("~/Content/CSS/main.css")"
+              rel="stylesheet" type="text/css" />
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function ($) {
+                var value = '@Request.RequestContext.HttpContext.Session["username"]';
+                console.log(value);
+            });
+        </script>
+
+    </head>
+    
+    <body>
+        <!------ Include the above in your HEAD tag ---------->
+        <div class="wrapper fadeInDown">
+            <div id="formContent">
+                <!-- Tabs Titles -->
+                <!-- Icon -->
+                <div class="fadeIn first">
+                    <img src="https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwiYvpuA3YvgAhXWFogKHakoCrAQjRx6BAgBEAU&url=https%3A%2F%2Fwww.vectorstock.com%2Froyalty-free-vector%2Fuser-icon-male-person-symbol-profile-avatar-sign-vector-19553139&psig=AOvVaw1S71XtEGOTxkzk6ImW6gRS&ust=1548592722114261" id="icon" alt="User Icon" />
+                </div>
+                <!-- Login Form -->
+                <form action="~/Login/CheckLogin" method="post">
+                    @Html.AntiForgeryToken()
+                    <input type="text" id="login" class="fadeIn second" name="username" placeholder="login">
+                    <input type="password" id="password" class="fadeIn third" name="password" placeholder="password">
+                    <input type="submit" class="fadeIn fourth" value="Log In">
+                </form>
+                <!-- Remind Passowrd -->
+                <div id="formFooter">
+                    <a class="underlineHover" href="#">Forgot Password?</a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+
+

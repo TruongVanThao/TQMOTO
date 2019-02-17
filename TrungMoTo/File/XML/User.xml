@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqls>
+  <sql id = "UserLogin">
+    select * from tbl_user where UserName = '{0}' and Password = '{1}' and status = 1
+  </sql>
+</sqls>
